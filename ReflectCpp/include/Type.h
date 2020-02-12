@@ -19,17 +19,27 @@ typedef std::any			any;
 
 #define typeof(_TYPE_) __internal::getType<_TYPE_>()
 
-class RF_API Type final
+class Type;
+namespace __internal
 {
 	template <typename T>
-	friend Type __internal::getType<T>();
+	inline Type getType()
+	{
+		return getType(typeid(T).name());
+	}
+	RF_API Type getType(const string& type);
+}
+
+class RF_API Type final
+{
+	friend Type __internal::getType(const string&);
 private:
 	string	_identifier;
 
 	Type(const string& identifier);
 
 public:
-	Type() = delete;
+	Type();
 	Type(const Type& other);
 	~Type();
 
@@ -39,13 +49,3 @@ public:
 	string getName() { return _identifier; }
 
 };
-
-namespace __internal
-{
-	template <typename T>
-	inline Type getType()
-	{
-		return getType(typeid(T).name())
-	}
-	Type getType(const string& type);
-}
