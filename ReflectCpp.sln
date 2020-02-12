@@ -5,7 +5,7 @@ VisualStudioVersion = 16.0.29519.87
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ReflectCpp", "ReflectCpp\ReflectCpp.vcxproj", "{133B9177-FD46-43FE-9392-EA64D98B26BD}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "UnitTest", "UnitTest\UnitTest.vcxproj", "{0DC3914A-8DC4-49F8-B645-8ECA76CA1160}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ReflectCpp.Test", "ReflectCpp.Test\ReflectCpp.Test.vcxproj", "{0DC3914A-8DC4-49F8-B645-8ECA76CA1160}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

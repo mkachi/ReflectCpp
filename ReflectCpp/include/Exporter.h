@@ -11,5 +11,5 @@
 #endif
 
 #if defined(DLL_API)
-	#define EXPORT_API DLL_API
+	#define RF_API DLL_API
 #endif
