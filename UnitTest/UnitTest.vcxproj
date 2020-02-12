@@ -35,18 +35,26 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <IncludePath>$(SolutionDir)ReflectCpp\include;$(IncludePath)</IncludePath>
     <ReferencePath>$(SolutionDir)\Build\Products\$(PlatformTarget)_$(Configuration)\;$(ReferencePath)</ReferencePath>
+    <OutDir>$(SolutionDir)\Build\UnitTest\$(PlatformTarget)_$(Configuration)\</OutDir>
+    <IntDir>$(SolutionDir)\Build\Intermediates\$(PlatformTarget)_$(Configuration)\</IntDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <IncludePath>$(SolutionDir)ReflectCpp\include;$(IncludePath)</IncludePath>
     <ReferencePath>$(SolutionDir)\Build\Products\$(PlatformTarget)_$(Configuration)\;$(ReferencePath)</ReferencePath>
+    <OutDir>$(SolutionDir)\Build\UnitTest\$(PlatformTarget)_$(Configuration)\</OutDir>
+    <IntDir>$(SolutionDir)\Build\Intermediates\$(PlatformTarget)_$(Configuration)\</IntDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <IncludePath>$(SolutionDir)ReflectCpp\include;$(IncludePath)</IncludePath>
     <ReferencePath>$(SolutionDir)\Build\Products\$(PlatformTarget)_$(Configuration)\;$(ReferencePath)</ReferencePath>
+    <OutDir>$(SolutionDir)\Build\UnitTest\$(PlatformTarget)_$(Configuration)\</OutDir>
+    <IntDir>$(SolutionDir)\Build\Intermediates\$(PlatformTarget)_$(Configuration)\</IntDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <IncludePath>$(SolutionDir)ReflectCpp\include;$(IncludePath)</IncludePath>
     <ReferencePath>$(SolutionDir)\Build\Products\$(PlatformTarget)_$(Configuration)\;$(ReferencePath)</ReferencePath>
+    <OutDir>$(SolutionDir)\Build\UnitTest\$(PlatformTarget)_$(Configuration)\</OutDir>
+    <IntDir>$(SolutionDir)\Build\Intermediates\$(PlatformTarget)_$(Configuration)\</IntDir>
   </PropertyGroup>
   <ItemGroup>
     <ClCompile Include="test.cpp" />
