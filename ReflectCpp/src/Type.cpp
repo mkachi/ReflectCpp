@@ -1,12 +1,12 @@
 #include "Type.h"
 #include <unordered_map>
 
-static std::unordered_map<string, Type> _typeInfos;
+static std::unordered_map<std::string, Type> _typeInfos;
 
 Type::Type()
 	: _identifier("") { }
 
-Type::Type(const string& identifier)
+Type::Type(const std::string& identifier)
 	: _identifier(identifier.substr(6)) { }
 
 Type::Type(const Type& other)
@@ -24,7 +24,7 @@ bool Type::operator!=(const Type& other)
 	return _identifier != other._identifier;
 }
 
-RF_API Type __internal::getType(const string& type)
+RF_API Type __internal::getType(const std::string& type)
 {
 	if (_typeInfos.find(type) == _typeInfos.end())
 	{

@@ -5,18 +5,6 @@
 #include <any>
 #include "Exporter.h"
 
-typedef wchar_t				wchar;
-typedef unsigned char		byte;
-typedef signed char			sbyte;
-typedef unsigned short		ushort;
-typedef unsigned int		uint;
-typedef unsigned long		ulong;
-typedef long long			int64;
-typedef unsigned long long	uint64;
-typedef std::string			string;
-typedef std::wstring		wstring;
-typedef std::any			any;
-
 #define typeof(_TYPE_) __internal::getType<_TYPE_>()
 
 class Type;
@@ -27,16 +15,16 @@ namespace __internal
 	{
 		return getType(typeid(T).name());
 	}
-	RF_API Type getType(const string& type);
+	RF_API Type getType(const std::string& type);
 }
 
 class RF_API Type final
 {
-	friend Type __internal::getType(const string&);
+	friend Type __internal::getType(const std::string&);
 private:
-	string	_identifier;
+	std::string	_identifier;
 
-	Type(const string& identifier);
+	Type(const std::string& identifier);
 
 public:
 	Type();
@@ -46,6 +34,6 @@ public:
 	bool operator==(const Type& other);
 	bool operator!=(const Type& other);
 
-	string getName() { return _identifier; }
+	std::string getName() { return _identifier; }
 
 };
