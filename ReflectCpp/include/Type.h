@@ -36,4 +36,8 @@ public:
 
 	std::string getName() { return _identifier; }
 
+	static Type none;
+
 };
+
+Type Type::none = Type();

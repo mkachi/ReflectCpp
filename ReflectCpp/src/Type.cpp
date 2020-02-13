@@ -4,7 +4,7 @@
 static std::unordered_map<std::string, Type> _typeInfos;
 
 Type::Type()
-	: _identifier("") { }
+	: _identifier("none") { }
 
 Type::Type(const std::string& identifier)
 	: _identifier(identifier.substr(6)) { }
