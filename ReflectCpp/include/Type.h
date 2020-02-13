@@ -1,8 +1,6 @@
 #pragma once
 
 #include <string>
-#include <vector>
-#include <any>
 #include "Exporter.h"
 
 #define typeof(_TYPE_) __internal::getType<_TYPE_>()

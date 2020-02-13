@@ -3,8 +3,19 @@
   <ItemGroup>
     <ClInclude Include="include\Exporter.h" />
     <ClInclude Include="include\Type.h" />
+    <ClInclude Include="include\Method.h">
+      <Filter>Reflection</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Type.cpp" />
+    <ClCompile Include="src\Method.cpp">
+      <Filter>Reflection</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Reflection">
+      <UniqueIdentifier>{fca3a218-04ed-4120-b76e-cb4f2e92bdac}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
 </Project>
