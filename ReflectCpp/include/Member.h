@@ -1,9 +1,6 @@
 #pragma once
 
-#include <any>
-#include <string>
-
-#include "Exporter.h"
+#include "Type.h"
 
 enum class MemberType
 {
@@ -25,13 +22,13 @@ class RF_API Member
 protected:
 	MemberType	_memberType;
 	AccessType	_accessType;
-	std::string _identifier;
+	Type		_owner;
 	std::string	_name;
 	bool		_static;
 
 public:
 	Member() = delete;
-	Member(MemberType memberType, AccessType accessType, const std::string& name, bool isStatic);
+	Member(const Type& owner, MemberType memberType, AccessType accessType, const std::string& name, bool isStatic);
 	virtual ~Member();
 
 	bool operator==(const Member& other);
