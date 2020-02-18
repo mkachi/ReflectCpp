@@ -28,6 +28,7 @@ class RF_API Type final
 {
 	template <typename T>
 	using vector = std::vector<T>;
+	friend class Metadata;
 private:
 	std::string		_fullName;
 	std::string		_name;

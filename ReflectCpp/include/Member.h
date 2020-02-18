@@ -13,10 +13,11 @@ protected:
 	Type		_owner;
 	std::string	_name;
 	bool		_static;
+	bool		_virtual;
 
 public:
 	Member() = delete;
-	Member(const Type& owner, MemberType memberType, AccessType accessType, const std::string& name, bool isStatic);
+	Member(const Type& owner, MemberType memberType, AccessType accessType, const std::string& name, bool isStatic, bool isVirtual);
 	virtual ~Member();
 
 	bool operator==(const Member& other);
@@ -27,5 +28,6 @@ public:
 
 	std::string getName() { return _name; }
 	bool isStatic() { return _static; }
-	
+	bool isVirtual() { return _virtual; }
+
 };

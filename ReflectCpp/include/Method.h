@@ -12,7 +12,7 @@ private:
 
 public:
 	Method() = delete;
-	Method(const Type& owner, AccessType accessType, const std::string& name, const std::any& method, bool isStatic);
+	Method(const Type& owner, AccessType accessType, const std::string& name, const std::any& method, bool isStatic, bool isVirtual);
 	virtual ~Method();
 
 	template <typename Result, typename Instance, typename ...Args>

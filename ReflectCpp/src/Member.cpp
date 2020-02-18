@@ -1,11 +1,12 @@
 #include "Member.h"
 
-Member::Member(const Type& owner, MemberType memberType, AccessType accessType, const std::string& name, bool isStatic)
+Member::Member(const Type& owner, MemberType memberType, AccessType accessType, const std::string& name, bool isStatic, bool isVirtual)
 	: _memberType(memberType)
 	, _accessType(accessType)
 	, _name(name)
 	, _owner(owner)
-	, _static(isStatic) {}
+	, _static(isStatic)
+	, _virtual(isVirtual){}
 Member::~Member() {}
 
 bool Member::operator==(const Member& other)
