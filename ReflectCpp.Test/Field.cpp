@@ -29,6 +29,12 @@ TEST(Field, getValue)
 
 	test.setA(200);
 	ASSERT_TRUE(test.getA() == field->getValue<int>(&test));
+
+	if (field != nullptr)
+	{
+		delete field;
+		field = nullptr;
+	}
 }
 
 TEST(Field, setValue)
@@ -41,4 +47,10 @@ TEST(Field, setValue)
 
 	field->setValue(&test, 200);
 	ASSERT_TRUE(test.getA() == 200);
+
+	if (field != nullptr)
+	{
+		delete field;
+		field = nullptr;
+	}
 }
