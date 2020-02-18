@@ -57,6 +57,7 @@
     <IntDir>$(SolutionDir)\Build\Intermediates\$(PlatformTarget)_$(Configuration)\</IntDir>
   </PropertyGroup>
   <ItemGroup>
+    <ClCompile Include="Field.cpp" />
     <ClCompile Include="Method.cpp" />
     <ClCompile Include="Type.cpp" />
   </ItemGroup>

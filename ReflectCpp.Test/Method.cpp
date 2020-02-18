@@ -1,8 +1,22 @@
 #include "gtest/gtest.h"
-#include "Example.h"
 #include <Method.h>
 
-TEST(Method, invoke) {
+namespace Hello
+{
+	class Base
+	{
+	private:
+		int _a;
+
+	public:
+		void setA(int value) { _a = value; }
+		int getA() { return _a; }
+
+	};
+}
+
+TEST(Method, invoke) 
+{
 	Hello::Base sample;
 
 	Type type = typeof(Hello::Base);
