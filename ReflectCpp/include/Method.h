@@ -1,6 +1,5 @@
 #pragma once
 
-#define _METHOD_H_
 #include "Member.h"
 #include <functional>
 #include <any>
