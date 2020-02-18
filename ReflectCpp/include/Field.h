@@ -11,7 +11,7 @@ private:
 
 public:
 	Field() = delete;
-	Field(const Type& owner, AccessType accessType, const std::string& name, const std::any& field, bool isStatic);
+	Field(Type* owner, AccessType accessType, const std::string_view& name, const std::any& field, bool isStatic);
 	virtual ~Field();
 
 	template <typename T, typename Instance>

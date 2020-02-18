@@ -12,7 +12,6 @@ enum class MemberType
 	Method,
 	Field,
 };
-
 enum class AccessType
 {
 	None,

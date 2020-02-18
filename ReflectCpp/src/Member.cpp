@@ -1,6 +1,6 @@
 #include "Member.h"
 
-Member::Member(const Type& owner, MemberType memberType, AccessType accessType, const std::string& name, bool isStatic, bool isVirtual)
+Member::Member(Type* owner, MemberType memberType, AccessType accessType, const std::string_view& name, bool isStatic, bool isVirtual)
 	: _memberType(memberType)
 	, _accessType(accessType)
 	, _name(name)

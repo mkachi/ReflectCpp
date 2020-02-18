@@ -182,6 +182,7 @@
     <ClInclude Include="include\Exporter.h" />
     <ClInclude Include="include\Field.h" />
     <ClInclude Include="include\Member.h" />
+    <ClInclude Include="include\Metadata.h" />
     <ClInclude Include="include\Method.h" />
     <ClInclude Include="include\Reflection.h" />
     <ClInclude Include="include\Type.h" />
@@ -189,6 +190,7 @@
   <ItemGroup>
     <ClCompile Include="src\Field.cpp" />
     <ClCompile Include="src\Member.cpp" />
+    <ClCompile Include="src\Metadata.cpp" />
     <ClCompile Include="src\Method.cpp" />
     <ClCompile Include="src\Type.cpp" />
   </ItemGroup>

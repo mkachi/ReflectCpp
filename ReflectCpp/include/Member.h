@@ -3,6 +3,7 @@
 #include "Exporter.h"
 #include "Type.h"
 #include <string>
+#include <string_view>
 
 class Type;
 class RF_API Member
@@ -10,14 +11,14 @@ class RF_API Member
 protected:
 	MemberType	_memberType;
 	AccessType	_accessType;
-	Type		_owner;
+	Type*		_owner;
 	std::string	_name;
 	bool		_static;
 	bool		_virtual;
 
 public:
 	Member() = delete;
-	Member(const Type& owner, MemberType memberType, AccessType accessType, const std::string& name, bool isStatic, bool isVirtual);
+	Member(Type* owner, MemberType memberType, AccessType accessType, const std::string_view& name, bool isStatic, bool isVirtual);
 	virtual ~Member();
 
 	bool operator==(const Member& other);
