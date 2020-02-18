@@ -183,6 +183,7 @@
     <ClInclude Include="include\Field.h" />
     <ClInclude Include="include\Member.h" />
     <ClInclude Include="include\Method.h" />
+    <ClInclude Include="include\Reflection.h" />
     <ClInclude Include="include\Type.h" />
   </ItemGroup>
   <ItemGroup>

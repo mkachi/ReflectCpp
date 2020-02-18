@@ -1,22 +1,10 @@
 #pragma once
 
+#include "Exporter.h"
 #include "Type.h"
+#include <string>
 
-enum class MemberType
-{
-	Constructor,
-	Destructor,
-	Method,
-	Field,
-};
-
-enum class AccessType
-{
-	Public,
-	Protected,
-	Private
-};
-
+class Type;
 class RF_API Member
 {
 protected:

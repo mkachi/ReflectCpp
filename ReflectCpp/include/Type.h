@@ -1,28 +1,41 @@
 #pragma once
 
-#include <string>
 #include "Exporter.h"
+#include <vector>
+#include <string>
 
-#define typeof(_TYPE_) __internal::getType<_TYPE_>()
-
-class Type;
-namespace __internal
+enum class MemberType
 {
-	template <typename T>
-	inline Type getType()
-	{
-		return getType(typeid(T).name());
-	}
-	RF_API Type getType(const std::string& type);
-}
+	None,
+	Constructor,
+	Destructor,
+	Method,
+	Field,
+};
 
+enum class AccessType
+{
+	None,
+	Public,
+	Protected,
+	Private
+};
+
+class Member;
+class Field;
+class Method;
 class RF_API Type final
 {
-	friend Type __internal::getType(const std::string&);
+	template <typename T>
+	using vector = std::vector<T>;
 private:
-	std::string	_identifier;
-
-	Type(const std::string& identifier);
+	std::string		_fullName;
+	std::string		_name;
+	bool			_premitive;
+	bool			_class;
+	bool			_enum;
+	vector<Field*>	_fields;
+	vector<Method*> _methods;
 
 public:
 	Type();
@@ -32,7 +45,20 @@ public:
 	bool operator==(const Type& other);
 	bool operator!=(const Type& other);
 
-	std::string getName() { return _identifier; }
+	std::string getFullName() { return _fullName; }
+	std::string getName() { return _name; }
+
+	bool isPremitive() { return _premitive; }
+	bool isClass() { return _class; }
+	bool isEnum() { return _enum; }
+
+	std::vector<Member*> getMembers(AccessType access = AccessType::None);
+	std::vector<Field*>	 getFields(AccessType access = AccessType::None);
+	std::vector<Method*> getMethods(AccessType access = AccessType::None);
+
+	Member* getMember(const std::string_view& name);
+	Field*	getField(const std::string_view& name);
+	Method* getMethod(const std::string_view& name);
 
 	static const Type none;
 
