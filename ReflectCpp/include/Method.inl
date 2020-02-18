@@ -1,9 +1,5 @@
-#pragma once
-
-#include "Method.h"
-
 template<typename Result, typename Instance, typename ...Args>
-inline Result Method::invoke(const Instance& instance, Args ...args)
+inline Result Method::invoke(Instance* instance, Args ...args)
 {
 	typedef Result(Instance::* MethodType)(Args...);
 	MethodType method = std::any_cast<MethodType>(_method);

@@ -57,6 +57,7 @@
     <IntDir>$(SolutionDir)\Build\Intermediates\$(PlatformTarget)_$(Configuration)\</IntDir>
   </PropertyGroup>
   <ItemGroup>
+    <ClCompile Include="Method.cpp" />
     <ClCompile Include="Type.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -66,6 +67,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Example.h" />
   </ItemGroup>
   <ItemDefinitionGroup />
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

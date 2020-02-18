@@ -3,13 +3,25 @@
   <ItemGroup>
     <ClInclude Include="include\Exporter.h" />
     <ClInclude Include="include\Type.h" />
+    <ClInclude Include="include\Member.h">
+      <Filter>Reflection</Filter>
+    </ClInclude>
     <ClInclude Include="include\Method.h">
+      <Filter>Reflection</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Field.h">
       <Filter>Reflection</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Type.cpp" />
+    <ClCompile Include="src\Member.cpp">
+      <Filter>Reflection</Filter>
+    </ClCompile>
     <ClCompile Include="src\Method.cpp">
+      <Filter>Reflection</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Field.cpp">
       <Filter>Reflection</Filter>
     </ClCompile>
   </ItemGroup>
@@ -17,5 +29,13 @@
     <Filter Include="Reflection">
       <UniqueIdentifier>{fca3a218-04ed-4120-b76e-cb4f2e92bdac}</UniqueIdentifier>
     </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="include\Method.inl">
+      <Filter>Reflection</Filter>
+    </None>
+    <None Include="include\Field.inl">
+      <Filter>Reflection</Filter>
+    </None>
   </ItemGroup>
 </Project>

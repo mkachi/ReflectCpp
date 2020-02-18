@@ -32,3 +32,5 @@ RF_API Type __internal::getType(const std::string& type)
 	}
 	return _typeInfos[type];
 }
+
+const Type Type::none = Type();

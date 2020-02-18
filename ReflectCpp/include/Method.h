@@ -1,5 +1,6 @@
 #pragma once
 
+#define _METHOD_H_
 #include "Member.h"
 #include <functional>
 #include <any>
@@ -16,6 +17,7 @@ public:
 	virtual ~Method();
 
 	template <typename Result, typename Instance, typename ...Args>
-	Result invoke(const Instance& instance, Args... args);
+	Result invoke(Instance* instance, Args... args);
 
 };
+#include "Method.inl"

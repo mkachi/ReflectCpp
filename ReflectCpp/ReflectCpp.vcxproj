@@ -180,12 +180,20 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="include\Exporter.h" />
+    <ClInclude Include="include\Field.h" />
+    <ClInclude Include="include\Member.h" />
     <ClInclude Include="include\Method.h" />
     <ClInclude Include="include\Type.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="src\Field.cpp" />
+    <ClCompile Include="src\Member.cpp" />
     <ClCompile Include="src\Method.cpp" />
     <ClCompile Include="src\Type.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="include\Field.inl" />
+    <None Include="include\Method.inl" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
