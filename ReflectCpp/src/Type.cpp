@@ -3,7 +3,9 @@
 #include "Field.h"
 #include "Method.h"
 
-Type::Type() 
+static std::vector<Type*> _typeInfos;
+
+Type::Type()
 	: _fullName("none")
 	, _name("none")
 	, _premitive(false)
@@ -161,6 +163,22 @@ Method* Type::getMethod(const std::string_view& name)
 		}
 	}
 	return nullptr;
+}
+
+int Type::registerType(Type* type)
+{
+	_typeInfos.push_back(type);
+	return _typeInfos.size() - 1;
+}
+
+Type Type::getType(int typeId)
+{
+	if (_typeInfos.size() < typeId || typeId < 0)
+	{
+		return Type::none;
+	}
+	Type* result = _typeInfos[typeId];
+	return *result;
 }
 
 const Type Type::none = Type();

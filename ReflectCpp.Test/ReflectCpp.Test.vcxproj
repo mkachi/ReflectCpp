@@ -58,7 +58,7 @@
   </PropertyGroup>
   <ItemGroup>
     <ClCompile Include="Field.cpp" />
-    <ClCompile Include="Metadata.cpp" />
+    <ClCompile Include="TypeRegister.cpp" />
     <ClCompile Include="Method.cpp" />
     <ClCompile Include="Type.cpp" />
   </ItemGroup>

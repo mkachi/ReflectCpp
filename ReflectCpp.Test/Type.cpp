@@ -1,51 +1,55 @@
 #include "gtest/gtest.h"
-#include <Type.h>
+#include <Reflection.h>
 
-namespace Hello
+class Base
 {
-	class Base
+	RF_CLASS(Base);
+private:
+	int _a;
+	int _b;
+
+	int getB() { return _b; }
+
+public:
+	static int C;
+	void setA(int a)
 	{
-	private:
-		int _a;
-
-	public:
-		void setA(int value) { _a = value; }
-		int getA() { return _a; }
-
-	};
-
-	class Base2
+		_a = a;
+		_b = a * 2;
+	}
+	
+	int getA()
 	{
-	private:
-		int _a;
+		return _a;
+	}
 
-	public:
-		void setA(int value) { _a = value; }
-		int getA() { return _a; }
+};
 
-	};
-}
-namespace Hello2
+RF_METADATA_BEGIN(Base)
+	RF_FIELD(AccessType::Private, _a)
+	RF_FIELD(AccessType::Private, _b)
+	RF_METHOD(AccessType::Private, getB)
+	RF_METHOD(AccessType::Public, setA)
+	RF_METHOD(AccessType::Public, getA)
+RF_METADATA_END
+
+TEST(Type, Metadata) 
 {
-	class Base
-	{
-	private:
-		int _a;
+	Base base;
+	Type type = typeof(Base);
+	type.getMethod("setA")->invoke<void>(&base, 10);
 
-	public:
-		void setA(int value) { _a = value; }
-		int getA() { return _a; }
+	int result;
+	result = type.getMethod("getA")->invoke<int>(&base);
+	ASSERT_TRUE(result == 10);
 
-	};
-}
+	result = type.getField("_a")->getValue<int>(&base);
+	ASSERT_TRUE(result == 10);
 
-TEST(Type, getName) {
-	Type type = typeof(Hello::Base);
-	ASSERT_TRUE(type.getName() == "Hello::Base");
-}
+	result = type.getField("_b")->getValue<int>(&base);
+	ASSERT_TRUE(result == (10 * 2));
 
-TEST(Type, operator) {
-	Type type = typeof(Hello::Base);
-	Type type2 = typeof(Hello2::Base);
-	ASSERT_FALSE(type == type2);
+	type.getField("_b")->setValue(&base, 99);
+	result = type.getMethod("getB")->invoke<int>(&base);
+	ASSERT_TRUE(result == 99);
 }

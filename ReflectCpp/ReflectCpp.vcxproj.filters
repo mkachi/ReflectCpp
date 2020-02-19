@@ -17,7 +17,7 @@
     <ClInclude Include="include\Reflection.h">
       <Filter>Reflection</Filter>
     </ClInclude>
-    <ClInclude Include="include\Metadata.h">
+    <ClInclude Include="include\TypeRegister.h">
       <Filter>Reflection</Filter>
     </ClInclude>
   </ItemGroup>
@@ -34,7 +34,7 @@
     <ClCompile Include="src\Type.cpp">
       <Filter>Reflection</Filter>
     </ClCompile>
-    <ClCompile Include="src\Metadata.cpp">
+    <ClCompile Include="src\TypeRegister.cpp">
       <Filter>Reflection</Filter>
     </ClCompile>
   </ItemGroup>

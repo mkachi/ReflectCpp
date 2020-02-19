@@ -27,7 +27,7 @@ class RF_API Type final
 {
 	template <typename T>
 	using vector = std::vector<T>;
-	friend class Metadata;
+	friend class TypeRegister;
 private:
 	std::string		_fullName;
 	std::string		_name;
@@ -36,6 +36,8 @@ private:
 	bool			_enum;
 	vector<Field*>	_fields;
 	vector<Method*> _methods;
+
+	static int registerType(Type* type);
 
 public:
 	Type();
@@ -60,6 +62,7 @@ public:
 	Field*	getField(const std::string_view& name);
 	Method* getMethod(const std::string_view& name);
 
+	static Type getType(int typeId);
 	static const Type none;
 
 };
