@@ -4,14 +4,6 @@
 #include <vector>
 #include <string>
 
-enum class MemberType
-{
-	None,
-	Constructor,
-	Destructor,
-	Method,
-	Field,
-};
 enum class AccessType
 {
 	None,

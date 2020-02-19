@@ -5,6 +5,15 @@
 #include <string>
 #include <string_view>
 
+enum class MemberType
+{
+	None,
+	Constructor,
+	Destructor,
+	Method,
+	Field,
+};
+
 class Type;
 class RF_API Member
 {
