@@ -1,5 +1,7 @@
 #include "Test1.h"
 
+int Test1::c = 100;
+
 Test1::Test1()
 	: _a(0)
 	, _b(0) {}

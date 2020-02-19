@@ -3,6 +3,7 @@
 RF_METADATA_BEGIN(Test1)
 	RF_FIELD(AccessType::Private, _a)
 	RF_FIELD(AccessType::Private, _b)
+	RF_STATIC_FIELD(AccessType::Private, c)
 	RF_METHOD(AccessType::Private, getMultipleB)
 	RF_METHOD(AccessType::Public, setA)
 	RF_METHOD(AccessType::Public, getA)

@@ -15,7 +15,7 @@ public:
 	Test1();
 	~Test1();
 
-	//static int c;
+	static int c;
 
 	void setA(int a);
 	int getA() { return _a; }
