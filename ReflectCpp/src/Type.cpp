@@ -11,6 +11,12 @@ Type::Type()
 	, _premitive(false)
 	, _class(false)
 	, _enum(false) {}
+Type::Type(const std::string_view& name, bool isPremitive, bool isEnum)
+	: _fullName(name)
+	, _name(name)
+	, _premitive(isPremitive)
+	, _class(false)
+	, _enum(isEnum) {}
 Type::Type(const Type& other)
 	: _fullName(other._fullName)
 	, _name(other._name)
@@ -19,25 +25,7 @@ Type::Type(const Type& other)
 	, _enum(other._enum)
 	, _fields(other._fields)
 	, _methods(other._methods) {}
-Type::~Type()
-{
-	for (int i = 0; i < _fields.size(); ++i)
-	{
-		if (_fields[i] != nullptr)
-		{
-			delete _fields[i];
-			_fields[i] = nullptr;
-		}
-		_fields.clear();
-
-		if (_methods[i] != nullptr)
-		{
-			delete _methods[i];
-			_methods[i] = nullptr;
-		}
-		_methods.clear();
-	}
-}
+Type::~Type() {}
 
 bool Type::operator==(const Type& other)
 {

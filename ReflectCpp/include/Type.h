@@ -33,6 +33,7 @@ private:
 
 public:
 	Type();
+	Type(const std::string_view& name, bool isPremitive, bool isEnum);
 	Type(const Type& other);
 	~Type();
 

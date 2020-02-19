@@ -5,15 +5,16 @@
 #include "TypeRegister.h"
 #include "Field.h"
 #include "Method.h"
+#include <type_traits>
 
-#define typeof(_TYPE_) __internal::__typeof<_TYPE_>()
+#define typeof(_TYPE_) __internal::__typeof<_TYPE_>::getType()
 
 #define RF_CLASS \
 public: \
 	Type getType() { return Type::getType(_typeId); } \
 private: \
-template <typename T> \
-friend inline Type __internal::__typeof(); \
+template <typename T, typename IF> \
+friend struct __internal::__typeof; \
 template <typename T> \
 friend struct __internal::Metadata; \
 	static int _typeId
@@ -43,12 +44,50 @@ int __internal::Metadata<_TYPE_>::__createMetadata() { \
 namespace __internal
 {
 	template <typename T>
-	struct Metadata;
+	using IsPremitive = std::enable_if_t<std::is_fundamental_v<T>>;
+	template <typename T>
+	using IsEnum = std::enable_if_t<std::is_enum_v<T>>;
+	template <typename T>
+	using IsClass = std::enable_if_t<std::is_class_v<T>>;
 
 	template <typename T>
-	inline Type __typeof()
+	struct Metadata;
+
+	// Error Type
+	template <typename T, typename IF = void>
+	struct __typeof
 	{
-		int typeId = T::_typeId;
-		return Type::getType(typeId);
-	}
+		static Type getType()
+		{
+			return Type::none;
+		}
+	};
+
+	template <typename T>
+	struct __typeof <T, IsPremitive<T>>
+	{
+		static Type getType()
+		{
+			return Type(typeid(T).name(), true, false);
+		}
+	};
+
+	template <typename T>
+	struct __typeof<T, IsEnum<T>>
+	{
+		static Type getType()
+		{
+			return Type(typeid(T).name(), false, true);
+		}
+	};
+
+	template <typename T>
+	struct __typeof<T, IsClass<T>>
+	{
+		static Type getType()
+		{
+			int typeId = T::_typeId;
+			return Type::getType(typeId);
+		}
+	};
 }
