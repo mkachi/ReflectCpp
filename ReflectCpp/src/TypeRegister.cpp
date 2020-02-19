@@ -17,7 +17,7 @@ TypeRegister TypeRegister::create(const char* typeName)
 	{
 		_type->_fullName = type.substr(type.find(CLASS_TOKEN) + strlen(CLASS_TOKEN));
 
-		int index = type.find_last_of("::");
+		size_t index = type.find_last_of("::");
 		if (index != std::string::npos)
 		{
 			_type->_name = type.substr(type.find_last_of("::") + 1);

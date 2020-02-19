@@ -14,12 +14,10 @@
     <ClInclude Include="include\Type.h">
       <Filter>Reflection</Filter>
     </ClInclude>
-    <ClInclude Include="include\Reflection.h">
-      <Filter>Reflection</Filter>
-    </ClInclude>
     <ClInclude Include="include\TypeRegister.h">
       <Filter>Reflection</Filter>
     </ClInclude>
+    <ClInclude Include="include\Reflection.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Member.cpp">

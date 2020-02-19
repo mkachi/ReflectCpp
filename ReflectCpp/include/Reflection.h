@@ -1,4 +1,5 @@
 #pragma once
+#pragma warning(disable: 4251)
 
 #include "Type.h"
 #include "TypeRegister.h"
@@ -24,11 +25,14 @@ namespace __internal \
 	struct Metadata<_TYPE_> \
 	{ \
 		using T = _TYPE_; \
-		static int __createMetadata() \
-		{ \
+		static int __createMetadata(); \
+	}; \
+} \
+int _TYPE_::_typeId = __internal::Metadata<_TYPE_>::__createMetadata(); \
+int __internal::Metadata<_TYPE_>::__createMetadata() { \
 			return TypeRegister().create(typeid(_TYPE_).name())
 
-#define RF_METADATA_END .getId(); } }; }
+#define RF_METADATA_END .getId(); }
 
 #define RF_FIELD(_ACCESS_, _FIELD_) .field(_ACCESS_, #_FIELD_, &T::##_FIELD_, false)
 #define RF_STATIC_FIELD(_ACCESS_, _FIELD_) .field(_ACCESS_, #_FIELD_, &T::##_FIELD_, true)

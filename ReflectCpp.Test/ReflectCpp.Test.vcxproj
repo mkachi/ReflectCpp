@@ -57,17 +57,23 @@
     <IntDir>$(SolutionDir)\Build\Intermediates\$(PlatformTarget)_$(Configuration)\</IntDir>
   </PropertyGroup>
   <ItemGroup>
-    <ClCompile Include="Field.cpp" />
+    <ClCompile Include="Test1.cpp" />
+    <ClCompile Include="Test1.meta.cpp" />
+    <ClCompile Include="Test2.cpp" />
+    <ClCompile Include="Test2.meta.cpp" />
     <ClCompile Include="Type.cpp" />
-    <ClCompile Include="Method.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Test1.h" />
+    <ClInclude Include="Test2.h" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\ReflectCpp\ReflectCpp.vcxproj">
       <Project>{133b9177-fd46-43fe-9392-ea64d98b26bd}</Project>
     </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="packages.config" />
   </ItemGroup>
   <ItemDefinitionGroup />
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
