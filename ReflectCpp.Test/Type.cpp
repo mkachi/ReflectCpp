@@ -1,31 +1,34 @@
 #include "gtest/gtest.h"
 #include <Reflection.h>
 
-class Base
+namespace Test1
 {
-	RF_CLASS(Base);
-private:
-	int _a;
-	int _b;
-
-	int getB() { return _b; }
-
-public:
-	static int C;
-	void setA(int a)
+	class Base
 	{
-		_a = a;
-		_b = a * 2;
-	}
-	
-	int getA()
-	{
-		return _a;
-	}
+		RF_CLASS;
+	private:
+		int _a;
+		int _b;
 
-};
+		int getB() { return _b; }
 
-RF_METADATA_BEGIN(Base)
+	public:
+		static int C;
+		void setA(int a)
+		{
+			_a = a;
+			_b = a * 2;
+		}
+
+		int getA()
+		{
+			return _a;
+		}
+
+	};
+}
+
+RF_METADATA_BEGIN(Test1::Base)
 	RF_FIELD(AccessType::Private, _a)
 	RF_FIELD(AccessType::Private, _b)
 	RF_METHOD(AccessType::Private, getB)
@@ -33,10 +36,12 @@ RF_METADATA_BEGIN(Base)
 	RF_METHOD(AccessType::Public, getA)
 RF_METADATA_END
 
+int Test1::Base::_typeId = __internal::Metadata<Test1::Base>::__createMetadata();
+
 TEST(Type, Metadata) 
 {
-	Base base;
-	Type type = typeof(Base);
+	Test1::Base base;
+	Type type = typeof(Test1::Base);
 	type.getMethod("setA")->invoke<void>(&base, 10);
 
 	int result;
